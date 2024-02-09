@@ -13,6 +13,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
   
   int currentIndex = 0;
   CarouselController carouselController = CarouselController();
+ 
+  List<String> titles = [
+    'Grow Your\nFinancial Today',
+    'Build From\nZero to Freedom',
+    'Start Together'
+  ];
+
+  List<String> subtitles = [
+    'Our system is helping you to\nachieve a better goal',
+    'We provide tips for you so that\nyou can adapt easier',
+    'We will guide you to where\nyou wanted it too'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +75,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
               child: Column(children: [
                 Text(
-                  'Grow Your\nFinancial Today',
+                  titles[currentIndex],
                   style: blackTextStyle.copyWith(
                     fontSize: 20,
                     fontWeight: semibold,                    
@@ -73,7 +85,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 const SizedBox(
                   height: 26,
                 ),Text(
-                  'Our system is helping you to\nachieve a better goal',
+                  subtitles[currentIndex],
                   style: greyTextStyle.copyWith(
                     fontSize: 16,
                   ),
@@ -92,7 +104,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: blueColor,
+                        color: currentIndex == 0
+                        ? blueColor
+                        : lightBackgroundColor,
                       ),
                     ),
                      Container(
@@ -103,7 +117,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: lightBackgroundColor,
+                        color: currentIndex == 1
+                        ? blueColor
+                        : lightBackgroundColor,
                       ),
                     ),
                       Container(
@@ -114,7 +130,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: lightBackgroundColor,
+                        color: currentIndex == 2
+                        ? blueColor
+                        : lightBackgroundColor,
                       ),
                     ),
                     const Spacer(),
