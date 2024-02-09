@@ -2,8 +2,16 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/shared/theme.dart';
 
-class OnboardingPage extends StatelessWidget {
+class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key?key}) : super(key: key);
+
+  @override
+  State<OnboardingPage> createState() => _OnboardingPageState();
+}
+
+class _OnboardingPageState extends State<OnboardingPage> {
+  
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +69,7 @@ class OnboardingPage extends StatelessWidget {
                   'Our system is helping you to\nachieve a better goal',
                   style: greyTextStyle.copyWith(
                     fontSize: 16,
-                  ) ,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
@@ -103,7 +111,7 @@ class OnboardingPage extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
-                    Container(
+                    SizedBox(
                       width: 150,
                       height:50 ,
                       child: TextButton(
@@ -112,7 +120,7 @@ class OnboardingPage extends StatelessWidget {
                           backgroundColor: purpleColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(56),
-                          )
+                          ),
                         ),
                         child: Text(
                           'Continue',
@@ -120,13 +128,16 @@ class OnboardingPage extends StatelessWidget {
                             fontSize: 16,
                             fontWeight: semibold,
                           ),                          
-                        ), ),
-                    )
+                        ), 
+                        ),
+                    ),
                   ],
-                )
-              ]),
-            )
-            ],) 
+                ),
+              ],
+              ),
+            ),
+            ],//child
+            ), 
         ),
     ) ;
   }
