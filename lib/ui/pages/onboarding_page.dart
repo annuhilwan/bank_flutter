@@ -12,6 +12,7 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   
   int currentIndex = 0;
+  CarouselController carouselController = CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
               height: 331,
               viewportFraction: 1,
               enableInfiniteScroll: false, 
+              onPageChanged: (index, reason){
+                setState((){
+                  currentIndex = index;
+                });
+              }
             ),
+            carouselController: carouselController,
             ),
             const SizedBox(
               height: 80,
@@ -115,7 +122,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       width: 150,
                       height:50 ,
                       child: TextButton(
-                        onPressed:() {},
+                        onPressed:() {
+                          carouselController.nextPage();
+                        },
                         style: TextButton.styleFrom(
                           backgroundColor: purpleColor,
                           shape: RoundedRectangleBorder(
