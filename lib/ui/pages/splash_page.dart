@@ -1,8 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/shared/theme.dart';
-import 'package:flutter_bank/ui/pages/onboarding_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage ({Key?key}) : super(key: key);
@@ -19,12 +17,7 @@ class _SplashPageState extends State<SplashPage>{
     super.initState();
 
     Timer(const Duration(seconds: 2),(){
-      Navigator.push(
-        context, 
-        MaterialPageRoute(
-          builder: (context)=> const OnboardingPage(),
-            ),
-          );
+     Navigator.pushNamed(context, '/onboarding');
       });
   }
 
