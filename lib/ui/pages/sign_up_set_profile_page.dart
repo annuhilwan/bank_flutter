@@ -3,8 +3,8 @@ import 'package:flutter_bank/shared/theme.dart';
 import 'package:flutter_bank/ui/widgets/button.dart';
 import 'package:flutter_bank/ui/widgets/form.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key?key}) : super(key: key);
+class SignUpSetProfilePage extends StatelessWidget {
+  const SignUpSetProfilePage({Key?key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,45 +47,56 @@ class SignUpPage extends StatelessWidget {
                 color: whiteColor,
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   //NOTE: NAME INPUT
-                   const CustomFormField(
-                    title: 'Full Name',
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  //NOTE: EMAIL INPUT
-                   const CustomFormField(
-                    title: 'Email Address',
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  //NOTE PASSWORD INPUT
-                  const CustomFormField(
-                    title: 'Password',
-                    obscureText: true,
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(                  
-                    'Forgot Password',
-                    style: blueTextStyle,
+                  // Container(
+                  //   width: 120,
+                  //   height: 120,
+                  //   decoration: BoxDecoration(
+                  //     shape: BoxShape.circle,
+                  //     color: lightBackgroundColor,
+                  //   ),
+                  //   child: Center(
+                  //     child: Image.asset(
+                  //       'assets/fi_upload-cloud.png',
+                  //       width: 32,
+                  //      ),
+                  //      ),
+                  //    ),
+                     Container(
+                    width: 120,
+                    height: 120,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        fit:BoxFit.cover,
+                        image: AssetImage(
+                          'assets/photo1.png',
+                      ),
+                      ), 
+                    ),                   
+                     ),                     
+                     const SizedBox(
+                      height: 16,
+                     ),
+                     Text(
+                      'Shayna Hanna',
+                      style: blackTextStyle.copyWith(
+                        fontSize: 18,
+                        fontWeight: medium,
+                      ),
+                      ),
+                    const SizedBox(
+                      height: 30,
                     ),
+                    const CustomFormField(
+                      title: 'Set PIN (6 digit number)', 
                     ),
                     const SizedBox(
                       height: 30,
                     ),
                      CustomFilledButton(
                       title: 'Continue',
-                      onPressed: (){
-                        Navigator.pushNamed(context, '/sign-up-set-profile');
-                      },
+                      onPressed: (){},
                       ),
                 ],
                 ),
@@ -93,12 +104,7 @@ class SignUpPage extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-           CustomTextButton(
-            title: 'Sign In',
-            onPressed: (){
-              Navigator.pushNamed(context, '/sign-in');
-            },
-            )
+           
         ],
       ),
     ); 
